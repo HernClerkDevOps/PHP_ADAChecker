@@ -1,8 +1,4 @@
 <?
-require_once('vendor/autoload.php');
-
-$climate = new League\CLImate\CLImate;
-
 $var_api_uri = "https://achecker.ca/checkacc.php";
 $var_id = "750edf1787d35fc7299b6464a14855959bccb7d8";
 $var_uri_file = 'uris.csv';
@@ -25,8 +21,7 @@ function file_get_contents_curl($url)
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 
     $data = curl_exec($ch);
-    if ($data === false)
-    {
+    if ($data === false) {
         echo 'Curl error: ' . curl_error($ch);
     } else {
         curl_close($ch);
@@ -34,7 +29,6 @@ function file_get_contents_curl($url)
         return $data;
     }
 }
-
 
 function get_title($html)
 {
@@ -60,8 +54,3 @@ foreach ($array as $uri) {
     $put = file_put_contents("Results/". trim(mb_ereg_replace("([^\w\s\d\-_~,;\[\]\(\).])", '', $title)) . '.html', $response);
     sleep(1);
 }
-
-
-//
-// $response = file_get_contents($var_api_uri . "?uri=" . $uri . "&id=" . $var_id);
-// $put = file_put_contents('test.html', $response);

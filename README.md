@@ -20,4 +20,4 @@ for this script to work properly you must mave a text file of all the URLs you w
 
 the file should only contain a list of urls one per line e.g.:
 
-![File Format]("https://raw.githubusercontent.com/HernClerkDevOps/PHP_ADAChecker/master/doc/csvss.png")
+![File Format]("/doc/csvss.png")
